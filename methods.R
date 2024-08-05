@@ -24,6 +24,21 @@ library(DT)
 library(dplyr)
 library(plotly)
 
+
+plot_over_time <- function(others, new, title){
+  others$source <- 'others'
+  new$source <- 'new'
+  combined_data <- bind_rows(others, new)
+  
+  
+  plot <- ggplot(combined_data, aes(x = created_at, y = sum, color = source)) +
+    geom_line() +
+    labs(title = title, x = "Date", y = "Sum", color = "Source") +
+    theme_minimal() 
+  ggplotly(plot)
+}
+
+
 create_fig <- function(x, y, y_new){
 
   fig <-  plot_ly(x = x, y = y, type = 'bar',

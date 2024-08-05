@@ -83,12 +83,13 @@ dict(
 
 ```{r}
 #| title: Issues open through the last 3 months
-create_fig(py$x_issues_others, py$y_issues_others, py$y_issues_new)
+plot_over_time(py$issues_sum_others, py$issues_sum_new, "Issues")
 ```
 
 ```{r}
 #| title: PRs open through the last 3 months
-create_fig(py$x_prs_others, py$y_prs_others, py$y_prs_new)
+plot_over_time(py$prs_sum_others, py$prs_sum_new, "PRs")
+
 ```
 
 ### Issues
